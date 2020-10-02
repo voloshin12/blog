@@ -7,8 +7,8 @@ export default {
       axios.get(LINK)
         .then(function (response) {
           // handle success
-          cth.commit('pushPosts', response.data);
-          console.log(response.data);
+          cth.commit('pushPosts', response.data.data);
+          console.log(response);
         })
         .catch(function (error) {
           // handle error
@@ -20,17 +20,16 @@ export default {
     }
   },
   mutations: {
-    pushPosts(){
-
+    pushPosts(state, posts){
+      state.posts = posts;
     }
   },
   state: {
     posts: []
   },
   getters: {
-    allPosts(){
-      return
+    allPosts(state){
+      return state.posts;
     }
   }
-
 }
