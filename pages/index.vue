@@ -3,7 +3,7 @@
     <div class="posts">
       <div class="post" v-for="post in allPosts" :key="allPosts.id">
 
-        <h1>{{ post.title }}</h1>
+        <h2>{{ post.title }}</h2>
         <div class="content" v-html="post.content_html">
 
         </div>
@@ -27,6 +27,9 @@ export default {
 <style>
 img{
   max-width: 100%;
+}
+h2{
+  margin-bottom: 20px;
 }
 .container{
   max-width: 1000px;
