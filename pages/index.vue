@@ -1,11 +1,11 @@
 <template>
   <div class="container">
-
+    {}
   </div>
 </template>
 
 <script>
-import {mapActions} from "vuex";
+import {mapActions, mapGetters} from "vuex";
 export default {
   methods: mapActions(['getPosts']),
   created() {
