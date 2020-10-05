@@ -4,6 +4,16 @@
   </div>
 </template>
 
+<script>
+import {mapActions} from "vuex";
+export default {
+  methods: mapActions(['getPosts']),
+  created() {
+    this.getPosts()
+  },
+}
+</script>
+
 <style>
 html {
   font-family:
@@ -29,6 +39,11 @@ html {
 *::after {
   box-sizing: border-box;
   margin: 0;
+}
+.container{
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 .button--green {

@@ -8,7 +8,7 @@ export default {
         .then(function (response) {
           // handle success
           cth.commit('pushPosts', response.data.data);
-          console.log(response);
+
         })
         .catch(function (error) {
           // handle error
@@ -17,19 +17,35 @@ export default {
         .then(function () {
           // always executed
         });
+    },
+    getPost(cth, payload) {
+      cth.commit('pushPost', payload.slug);
     }
   },
   mutations: {
     pushPosts(state, posts){
       state.posts = posts;
+    },
+    pushPost(state, slug) {
+      console.log(state);
+      state.post = state.posts.filter(item => {
+        if (item.slug === slug){
+          return item
+        }
+      })
+      console.log(state.post)
     }
   },
   state: {
-    posts: []
+    posts: [],
+    post: []
   },
   getters: {
     allPosts(state){
       return state.posts;
+    },
+    currentPost(state) {
+      return state.post[0]
     }
   }
 }

@@ -7,20 +7,18 @@
         <div class="content" v-html="post.content_html">
 
         </div>
-        <router-link :to="post.slug">Подробнее</router-link>
+        <router-link :to="'/posts/' + post.slug">Подробнее</router-link>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import {mapActions, mapGetters} from "vuex";
+import {mapGetters} from "vuex";
 export default {
-  methods: mapActions(['getPosts']),
-  computed: mapGetters(['allPosts']),
-  created() {
-    this.getPosts()
-  },
+  computed: {
+    ...mapGetters(['allPosts'])
+  }
 }
 </script>
 
@@ -31,11 +29,7 @@ img{
 h2{
   margin-bottom: 20px;
 }
-.container{
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
+
 .post{
   margin-bottom: 50px;
 }
