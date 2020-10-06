@@ -3,12 +3,12 @@ const LINK = 'http://new.nebloger.ru/api/v1/posts'
 
 export default {
   actions: {
-    getPosts(cth){
-      axios.get(LINK)
+    async getPosts(cth){
+      await axios.get(LINK)
         .then(function (response) {
           // handle success
           cth.commit('pushPosts', response.data.data);
-
+          console.log('hello 1')
         })
         .catch(function (error) {
           // handle error
@@ -18,7 +18,10 @@ export default {
           // always executed
         });
     },
-    getPost(cth, payload) {
+    async getPost(cth, payload) {
+      if (cth.state.posts.length === 0) {
+        await cth.dispatch('getPosts');
+      }
       cth.commit('pushPost', payload.slug);
     }
   },
@@ -27,13 +30,12 @@ export default {
       state.posts = posts;
     },
     pushPost(state, slug) {
-      console.log(state);
       state.post = state.posts.filter(item => {
         if (item.slug === slug){
           return item
         }
       })
-      console.log(state.post)
+
     }
   },
   state: {

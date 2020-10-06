@@ -6,15 +6,18 @@
 
 <script>
 import {mapActions} from "vuex";
+import 'hljs/styles/default.css';
 export default {
   methods: mapActions(['getPosts']),
   created() {
-    this.getPosts()
+    this.getPosts();
+
   },
 }
 </script>
 
 <style>
+
 html {
   font-family:
     'Source Sans Pro',

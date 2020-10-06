@@ -7,6 +7,7 @@
         <div class="content" v-html="post.content_html">
 
         </div>
+
         <router-link :to="'/posts/' + post.slug">Подробнее</router-link>
       </div>
     </div>
