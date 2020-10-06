@@ -1,13 +1,20 @@
 <template>
-  <div>
-    <Nuxt />
+  <div id="app">
+    <div class="main">
+      <Sidebar/>
+      <div class="content">
+        <Nuxt />
+      </div>
+    </div>
+
   </div>
 </template>
 
 <script>
 import {mapActions} from "vuex";
-import 'hljs/styles/default.css';
+import Sidebar from '@/components/Sidebar'
 export default {
+  components: { Sidebar },
   methods: mapActions(['getPosts']),
   created() {
     this.getPosts();
@@ -17,7 +24,19 @@ export default {
 </script>
 
 <style>
-
+ul{
+  padding-left: 0;
+}
+li{
+  list-style: none;
+}
+.main{
+  display: flex;
+}
+.content{
+  padding-left: 280px;
+  width: 100%;
+}
 html {
   font-family:
     'Source Sans Pro',

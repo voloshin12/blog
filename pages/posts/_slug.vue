@@ -1,29 +1,20 @@
 <template>
-
-  <div class="container" v-if="currentPost">
-    <h1>{{ currentPost.title }}</h1>
-    <div v-html="currentPost.content_html">
-
-    </div>
-    <pre v-highlightjs="sourcecode">
-      <code class="javascript">
-        console.log("hello)
-      </code>
-    </pre>
+  <div class="container" v-if="getPost">
+    <h1>{{getPost.title}}</h1>
+    <div v-html="getPost.content_html"></div>
   </div>
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex'
 
 export default {
   name: 'slug',
-  methods: mapActions(['getPost', 'getPosts']),
   computed: {
-    ...mapGetters(['currentPost'])
+    getPost() {
+      return this.$store.getters.currentPost(this.$route.params.slug)[0]
+    }
   },
   created() {
-    this.getPost({slug: this.$route.params.slug})
   }
 }
 </script>

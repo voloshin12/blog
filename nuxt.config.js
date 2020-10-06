@@ -35,7 +35,7 @@ export default {
   ** https://nuxtjs.org/guide/plugins
   */
   plugins: [
-    { src: '~/plugins/hljs.js', mode: 'client' }
+    // { src: '~/plugins/hljs.js', mode: 'client' }
   ],
   /*
   ** Auto import components

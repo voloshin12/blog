@@ -14,12 +14,14 @@
     "@nuxtjs/axios": "^5.11.0",
     "@nuxtjs/pwa": "^3.0.0-beta.20",
     "hljs": "^6.2.3",
+    "node-sass": "^4.14.1",
     "nuxt": "^2.13.0",
     "vue-highlightjs": "^1.3.3"
   },
   "devDependencies": {
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.1.4",
-    "prettier": "^2.0.5"
+    "prettier": "^2.0.5",
+    "sass-loader": "^10.0.2"
   }
 }

@@ -4,7 +4,7 @@
       <div class="post" v-for="post in allPosts" :key="allPosts.id">
 
         <h2>{{ post.title }}</h2>
-        <div class="content" v-html="post.content_html">
+        <div v-html="post.content_html">
 
         </div>
 
